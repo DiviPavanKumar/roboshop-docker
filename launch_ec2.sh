@@ -2,7 +2,7 @@
 
 # Variables
 AMI_ID="ami-0b4f379183e5706b9"   # Amazon Linux 2 AMI (replace with CentOS 8 if preferred)
-INSTANCE_TYPE="t2.micro"
+INSTANCE_TYPE="t3.medium"
 KEY_NAME="devops"
 SECURITY_GROUP="Allow-all"
 REGION="us-east-1"

@@ -49,3 +49,4 @@ services:
     depends_on:
       - catalogue
       - user
+      - cart
