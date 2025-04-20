@@ -47,7 +47,7 @@ services:
   shipping:
     image: shipping:v1
     container_name: shipping
-    network:
+    networks:
       - roboshop
     depends_on:
       - cart
