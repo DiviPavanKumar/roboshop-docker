@@ -17,20 +17,21 @@ services:
     depends_on:
       - mongodb
 
-  # redis:
-    # image: redis
-    # container_name: redis
-    # networks:
-      # - roboshop
+  redis:
+    image: redis
+    container_name: redis
+    networks:
+      - roboshop
 
-  # user:
-    # image: user:v1
-    # container_name: user
-    # networks:
-      # - roboshop
-    # depends_on:
-      # - mongodb
-      # - redis
+  user:
+    image: user:v1
+    container_name: user
+    networks:
+      - roboshop
+    depends_on:
+      - mongodb
+      - redis
+
   # cart:
     # image: cart:v1
     # container_name: cart
@@ -61,7 +62,7 @@ services:
       - "80:80"
     depends_on:
       - catalogue
-      # - user
+      - user
       # - cart
 
 #for i in `ls -d */ | cut -d "/" -f1` ; do cd $i ; docker build -t $i:v1 . ; cd.. ; done
