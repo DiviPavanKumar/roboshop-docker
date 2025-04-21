@@ -63,7 +63,7 @@ services:
     depends_on:
       - catalogue
       - user
-      # - cart
+      - cart
 
 #for i in `ls -d */ | cut -d "/" -f1` ; do cd $i ; docker build -t $i:v1 . ; cd.. ; done
 
