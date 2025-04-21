@@ -17,41 +17,41 @@ services:
     depends_on:
       - mongodb
 
-  redis:
-    image: redis
-    container_name: redis
-    networks:
-      - roboshop
+  # redis:
+    # image: redis
+    # container_name: redis
+    # networks:
+      # - roboshop
 
-  user:
-    image: user:v1
-    container_name: user
-    networks:
-      - roboshop
-    depends_on:
-      - mongodb
-      - redis
-  cart:
-    image: cart:v1
-    container_name: cart
-    networks:
-      - roboshop
-    depends_on:
-      - redis
-      - catalogue
-  mysql:
-    image: mysql:v1
-    container_name: mysql
-    networks:
-      - roboshop
-  shipping:
-    image: shipping:v1
-    container_name: shipping
-    networks:
-      - roboshop
-    depends_on:
-      - cart
-      - mysql
+  # user:
+    # image: user:v1
+    # container_name: user
+    # networks:
+      # - roboshop
+    # depends_on:
+      # - mongodb
+      # - redis
+  # cart:
+    # image: cart:v1
+    # container_name: cart
+    # networks:
+      # - roboshop
+    # depends_on:
+      # - redis
+      # - catalogue
+  # mysql:
+    # image: mysql:v1
+    # container_name: mysql
+    # networks:
+      # - roboshop
+  # shipping:
+    # image: shipping:v1
+    # container_name: shipping
+    # networks:
+      # - roboshop
+    # depends_on:
+      # - cart
+      # - mysql
   web:
     image: web:v1
     container_name: web
@@ -61,8 +61,8 @@ services:
       - "80:80"
     depends_on:
       - catalogue
-      - user
-      - cart
+      # - user
+      # - cart
 
 #for i in `ls -d */ | cut -d "/" -f1` ; do cd $i ; docker build -t $i:v1 . ; cd.. ; done
 
