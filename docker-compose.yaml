@@ -32,14 +32,14 @@ services:
       - mongodb
       - redis
 
-  # cart:
-    # image: cart:v1
-    # container_name: cart
-    # networks:
-      # - roboshop
-    # depends_on:
-      # - redis
-      # - catalogue
+  cart:
+    image: cart:v1
+    container_name: cart
+    networks:
+      - roboshop
+    depends_on:
+      - redis
+      - catalogue
   # mysql:
     # image: mysql:v1
     # container_name: mysql
