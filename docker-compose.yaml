@@ -55,9 +55,21 @@ services:
       - mysql
   rabbitmq:
     image: rabbitmq
+    container_name: rabbitmq
+    networks:
+      - roboshop
     environment:
       - RABBITMQ_DEFAULT_USER=roboshop
       - RABBITMQ_DEFAULT_PASS=roboshop123
+  payment:
+    image: payment:v1
+    container_name: payment
+    networks:
+      - roboshop
+    depends_on:
+      - cart
+      - user
+      - rabbitmq
   web:
     image: web:v1
     container_name: web
@@ -69,6 +81,8 @@ services:
       - catalogue
       - user
       - cart
+      - shipping
+      - payment
 
 #for i in `ls -d */ | cut -d "/" -f1` ; do cd $i ; docker build -t $i:v1 . ; cd.. ; done
 
